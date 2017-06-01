@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group android:id="@+id/group1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_item_1"
+            android:title=""
+            />
+        <item
+            android:id="@+id/nav_item_2"
+            android:title=""/>
+        <item
+            android:id="@+id/nav_item_3"
+            android:title=""/>
+        <item
+            android:id="@+id/nav_item_4"
+            android:title=""/>
+        <item
+            android:id="@+id/nav_item_5"
+            android:title=""/>
+        <item
+            android:title=""
+            android:checkable="false"/>
+    </group>
+    <group android:id="@+id/group2"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_item_help"
+            android:icon="@drawable/ic_help"
+            android:title="数据介绍"/>
+        <item
+            android:id="@+id/nav_item_setting"
+            android:icon="@drawable/ic_setting"
+            android:title="设置"/>
+    </group>
+</menu>

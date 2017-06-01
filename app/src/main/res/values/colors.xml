@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorAQI1">#6ACD06</color>
+    <color name="colorAQI2">#FBD12A</color>
+    <color name="colorAQI3">#FE8800</color>
+    <color name="colorAQI4">#FF0000</color>
+    <color name="colorAQI5">#CC0000</color>
+    <color name="colorAQI6">#960453</color>
+    <color name="colorItemLight">#D0F0F0F0</color>
+    <color name="colorTitleLight">#50000000</color>
+</resources>
