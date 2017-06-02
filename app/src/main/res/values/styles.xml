@@ -14,4 +14,7 @@
     <style name="MenuTextStyle">
         <item name="android:textSize">20sp</item>
     </style>
+    <style name="LayoutTheme">
+        <item name="android:textColor">@color/colorItemDark</item>
+    </style>
 </resources>

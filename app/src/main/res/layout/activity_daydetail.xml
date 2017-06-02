@@ -10,7 +10,7 @@
         android:id="@+id/toolbar_daydetail"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#10EAEAEA"
+        android:background="@color/colorPrimaryBackground"
         android:popupTheme="@style/AppTheme.PopupOverlay"
         android:theme="@style/AppTheme.AppBarOverlay">
 
@@ -19,8 +19,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textColor="#ddd"
-            android:textSize="20sp" />
+            android:textColor="@color/colorToolBarText"
+            android:textSize="24sp" />
     </android.support.v7.widget.Toolbar>
 
     <android.support.v4.widget.SwipeRefreshLayout

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#348fd8"
+    android:background="@color/colorPrimaryBackground"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
@@ -21,7 +21,7 @@
             android:layout_gravity="center"
             android:text="City"
             android:textColor="#ddd"
-            android:textSize="20sp" />
+            android:textSize="24sp" />
     </android.support.v7.widget.Toolbar>
 
     <android.support.v4.widget.SwipeRefreshLayout

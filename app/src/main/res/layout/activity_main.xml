@@ -4,7 +4,7 @@
     android:id="@+id/drawer_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#348FD8">
+    android:background="@color/colorPrimaryBackground">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -25,8 +25,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="City"
-                android:textColor="#ddd"
-                android:textSize="20sp" />
+                android:textColor="@color/colorToolBarText"
+                android:textSize="24sp" />
         </android.support.v7.widget.Toolbar>
 
         <android.support.v4.widget.SwipeRefreshLayout

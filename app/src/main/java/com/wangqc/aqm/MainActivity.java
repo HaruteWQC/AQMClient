@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                queryCityAirInfo(cityString);
+                queryCityAirInfo(cityString, 0);
             }
         });
         //配置垂直滚动控件
@@ -166,7 +166,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         setNavigationItem();
         if (historyList[0] != null && !historyList[0].equals("")) {
             cityTextView.setText(historyList[0]);
-            queryCityAirInfo(historyList[0]);
+            queryCityAirInfo(historyList[0], 1);
         }else {
             new Thread(new Runnable() {
                 @Override
@@ -239,10 +239,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             try {
                 bestAdapter = cityListAdapter.getItem(0).toString();
                 if (query != null && bestAdapter != null && bestAdapter.equals(query)) {
-                    queryCityAirInfo(query);
+                    queryCityAirInfo(query, 1);
                     mSearchView.clearFocus();
-                    addToHistoryList(cityString);
-                    setNavigationItem();
                 } else {
                     Toast.makeText(MainActivity.this, "请输入有效城市名", Toast.LENGTH_SHORT).show();
                 }
@@ -251,8 +249,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 Toast.makeText(MainActivity.this, "请输入有效城市名", Toast.LENGTH_SHORT).show();
             }
         } else {
-            setCityListAdapter();
             Toast.makeText(MainActivity.this, "无法获取服务器数据", Toast.LENGTH_SHORT).show();
+            setCityListAdapter();
         }
         return true;
     }
@@ -261,10 +259,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         String itemName = cityListAdapter.getItem(i).toString();
         if (itemName != null) {
-            queryCityAirInfo(itemName);
+            queryCityAirInfo(itemName, 1);
             mSearchView.clearFocus();
-            addToHistoryList(cityString);
-            setNavigationItem();
         }
     }
 
@@ -331,7 +327,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                     mDrawerLayout.closeDrawers();
                     cityString = title;
                     mSwipeRefreshLayout.setRefreshing(true);
-                    queryCityAirInfo(cityString);
+                    queryCityAirInfo(cityString, 0);
                 }
                 break;
         }
@@ -402,7 +398,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         }).start();
     }
 
-    private void queryCityAirInfo(final String name) {
+    private void queryCityAirInfo(final String name, final int queryType) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -412,11 +408,11 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         new Thread(new Runnable() {
             @Override
             public void run() {
-                cityString = name;
                 String pyCityName = PinyinUtil.getPingYin(name);
                 cityJson = new JsonUtil().getJsonFromUrl(cityJsonPreUrl + pyCityName + ".json");
 
                 if (cityJson != null) {
+                    cityString = name;
                     try {
                         sleep(500);
                     } catch (InterruptedException e) {
@@ -425,6 +421,10 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                         @Override
                         public void run() {
                             refreshUI(cityJson, cityString);
+                            if (queryType == 1) {
+                                addToHistoryList(cityString);
+                                setNavigationItem();
+                            }
                             mSwipeRefreshLayout.setRefreshing(false);
                         }
                     });
@@ -538,7 +538,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 sitesListContainer.addView(view);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            Toast.makeText(MainActivity.this, "运行异常", Toast.LENGTH_SHORT).show();
         }
 
         mScrollView.fullScroll(ScrollView.FOCUS_UP);

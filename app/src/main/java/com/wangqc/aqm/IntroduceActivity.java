@@ -1,6 +1,8 @@
 package com.wangqc.aqm;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 
 public class IntroduceActivity extends AppCompatActivity {
 
@@ -35,6 +38,17 @@ public class IntroduceActivity extends AppCompatActivity {
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        //设置HTTP链接按钮
+        Button linkButton = (Button)findViewById(R.id.http_link);
+        linkButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("http://106.37.208.228:8082/"));
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

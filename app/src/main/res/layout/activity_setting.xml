@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/colorPrimaryBackground"
     android:fitsSystemWindows="true">
 
     <android.support.v7.widget.Toolbar
@@ -20,8 +21,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="设置"
-            android:textColor="#ddd"
-            android:textSize="20sp" />
+            android:textColor="@color/colorToolBarText"
+            android:textSize="24sp" />
     </android.support.v7.widget.Toolbar>
 
     <LinearLayout

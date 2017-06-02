@@ -10,5 +10,8 @@
     <color name="colorAQI5">#CC0000</color>
     <color name="colorAQI6">#960453</color>
     <color name="colorItemLight">#D0F0F0F0</color>
-    <color name="colorTitleLight">#50000000</color>
+    <color name="colorItemDark">#BF0F0F0F</color>
+    <color name="colorTitleLight">#80000000</color>
+    <color name="colorToolBarText">#DDDDDD</color>
+    <color name="colorPrimaryBackground">#348FD8</color>
 </resources>
